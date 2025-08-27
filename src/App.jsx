@@ -1,0 +1,32 @@
+import { useState, useEffect } from "react";
+import Clist from './components/Clist';
+import axios from 'axios'
+
+const App = () => {
+  const [country, setCountry] = useState([]);
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    axios.get(`https://studies.cs.helsinki.fi/restcountries/api/all`)
+      .then((response)=>{
+        setCountry(response.data)
+      })
+  },[])
+
+  const filterList = country.filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase()) )
+
+  const onSearch = (event) =>{
+    setSearch(event.target.value)
+  }
+
+  return(
+    <div>
+      <form>
+          find countries <input value={search} onChange={onSearch}/>
+      </form>
+      <Clist country={filterList} />
+    </div>
+  );
+}
+
+export default App

@@ -1,6 +1,21 @@
 const Clist = (props) =>{
     let dispText = '';
     
+    if(props.selected){
+        return(
+            <div>
+                <h1>{props.selected.name.common}</h1>
+                <p>Capital {props.selected.capital}</p>
+                <p>Area {props.selected.area}</p>
+                <h2>Languages</h2>
+                <ul>
+                    {Object.keys(props.selected.languages).map((lang) => <li key={lang}>{props.selected.languages[lang]} </li>)}
+                </ul>
+                <img src={props.selected.flags.png} />
+            </div>
+        );
+    }
+
     if(props.country.length>10){
         dispText = 'too many matches specify another filter'
         return  <p>{dispText}</p>
@@ -8,7 +23,9 @@ const Clist = (props) =>{
         return(
             <div>
                 <p>{dispText}</p>
-                {props.country.map((nation)=>(<p key={nation.name.common}>{nation.name.common}</p>))}
+                {props.country.map((nation)=>(<p key={nation.name.common}>{nation.name.common}
+                    <button onClick={() => props.onSelect(nation)}>show</button>
+                </p>))}
             </div>
         );
     }else if(props.country.length==1){

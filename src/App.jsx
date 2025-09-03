@@ -5,6 +5,7 @@ import axios from 'axios'
 const App = () => {
   const [country, setCountry] = useState([]);
   const [search, setSearch] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
     axios.get(`https://studies.cs.helsinki.fi/restcountries/api/all`)
@@ -17,6 +18,7 @@ const App = () => {
 
   const onSearch = (event) =>{
     setSearch(event.target.value)
+    setSelectedCountry(null)
   }
 
   return(
@@ -24,7 +26,7 @@ const App = () => {
       <form>
           find countries <input value={search} onChange={onSearch}/>
       </form>
-      <Clist country={filterList} />
+      <Clist country={filterList} selected={selectedCountry} onSelect={(c)=> setSelectedCountry(c)} />
     </div>
   );
 }

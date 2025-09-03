@@ -1,12 +1,55 @@
-# React + Vite
+# Country Data App 🌍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application that lets you search and explore country information using the [REST Countries API](https://studies.cs.helsinki.fi/restcountries/api/all).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- 🔍 Search for countries by name  
+- 📃 Displays a filtered list of matching countries  
+- 👀 "Show" button to view details of a specific country  
+- 📌 Country details include:
+  - Name  
+  - Capital  
+  - Area  
+  - Languages  
+  - National Flag  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+- [React](https://react.dev/) — frontend framework  
+- [Axios](https://axios-http.com/) — for API requests  
+- [REST Countries API](https://studies.cs.helsinki.fi/restcountries/api/all) — data source  
+
+---
+## ⚙️ Installation & Setup
+
+```bash
+# 1. Clone the repository
+git clone <your-repo-url>
+cd country-data-app
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
+npm start
+
+# 4. Open the app in your browser
+# then navigate to:
+http://localhost:3000
+try-data-app
+```
+
+## 🚀 Usage
+
+- Enter a search term in the input field.
+
+- If more than 10 results → you’ll be asked to narrow down your search.
+
+- If 2–10 results → a list of countries appears with a show button next to each.
+
+- Click show to see full details of that country.
+
+- If exactly 1 country matches → details are shown automatically.Usage
